@@ -1,0 +1,12 @@
+.button{
+    justify-items: center;
+    margin: 50%;
+    width: 15em;
+    background-color: black;
+    border-radius: 20px;
+    margin-bottom: 20px;
+ }
+ .flightselectionbtn{
+    justify-items: center;
+ }
+
