@@ -1,15 +1,12 @@
-body{
-        background-image: url(./gettyimages-1677184597.jpg);
-        background-size: 100%;
-            
+body {
+  background-image: url();
+  background-size: 100%;
 }
 p {
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .form {
-    
-    
 }
