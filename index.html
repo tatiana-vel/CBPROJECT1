@@ -1,50 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Compressed CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css" crossorigin="anonymous">
-<link rel="stylesheet" href="/style.css">
-  <title>Book your flight</title>
-</head>
-<body>
-  <p><button class="button" data-toggle="animatedModal10">✈️ Book Your Flight Here! ✈️</button></p>
-
-<!-- <div class="reveal" id="animatedModal10" data-reveal data-close-on-click="true" data-animation-in="spin-in" data-animation-out="spin-out"> -->
-  
-<form>
-  <div class="grid-container">
-    <div class="grid-x grid-padding-x">
-      <div class="medium-6 cell">
-        <label>From:
-          <input type="text" placeholder="Select your Origin">
-        </label>
+    <title>Book your flight</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./ASSETS/style.css">
+    
+  </head>
+  <body>
+    <!-- <div class="reveal" id="animatedModal10" data-reveal data-close-on-click="true" data-animation-in="spin-in" data-animation-out="spin-out"> -->
+  <div class="form">
+    <form class=>
+      <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+          <div class="medium-6 cell">
+            <label
+              >From:
+              <input type="text" placeholder="Select your Origin" />
+            </label>
+          </div>
+          <div class="medium-6 cell">
+            <label
+              >To:
+              <input type="text" placeholder="Select Your Destination" />
+            </label>
+          </div>
+          <div class="medium-6 cell">
+            <label
+              >Depart:
+              <input type="text" placeholder="Enter your departure date" />
+            </label>
+          </div>
+          <div class="medium-6 cell">
+            <label
+              >Return:
+              <input type="text" placeholder="Enter your return date" />
+            </label>
+          </div>
+        </div>
       </div>
-      <div class="medium-6 cell">
-        <label>To:
-          <input type="text" placeholder="Select Your Destination">
-        </label>
-      </div>
-      <div class="medium-6 cell">
-        <label>Depart:
-          <input type="text" placeholder="Enter your departure date">
-        </label>
-      </div>
-      <div class="medium-6 cell">
-        <label>Return:
-          <input type="text" placeholder="Enter your return date">
-        </label>
-      </div>
-      
-    </div>
+    </form>
   </div>
-</form>
+    <!--<button
+      class="close-button"
+      data-close
+      aria-label="Close reveal"
+      type="button"
+    >
+      <span aria-hidden="true">&times;</span>
+      Select
+    </button>-->
 
-  <!-- <button class="close-button" data-close aria-label="Close reveal" type="button">
-    <span aria-hidden="true">&times;</span>
-    Select
-  </button> -->
+    <p>
+      <button class="button" data-toggle="animatedModal10">
+        ✈️ Book Your Flight Here! ✈️
+      </button>
+    </p>
 
-</body>
+    <script src="./ASSETS/index.js"></script>
+  </body>
 </html>
