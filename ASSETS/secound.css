@@ -1,0 +1,30 @@
+body{
+    background: url(./Screenshot\ 2024-05-22\ 200140.png);
+    background-size: 100%;
+}
+
+main{
+    background-color: white;
+      padding: 2rem;
+      margin: 1rem;
+      max-width:90%;
+      width: 100%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+  }
+   h2 {
+    border-bottom: 2px solid #0078e7;
+    padding-bottom: 0.5rem;
+    color: #333;
+    text-align: center;
+  }
+  header{
+    color: aliceblue;
+   margin: auto;
+   text-align: center;
+    
+  }
+.button:hover{
+    background-color: #004494;
+    
+}

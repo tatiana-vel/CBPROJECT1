@@ -1,12 +1,114 @@
-.button{
-    justify-items: center;
-    margin: 50%;
-    width: 15em;
-    background-color: black;
-    border-radius: 20px;
-    margin-bottom: 20px;
- }
- .flightselectionbtn{
-    justify-items: center;
- }
+body {
+  background-image: url(./Screenshot\ 2024-05-22\ 200201.png);
+  background-size: 100%;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: #0078e7;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
 
+header h1 {
+  margin: 0;
+}
+
+header button {
+  background-color: #005bb5;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+header button a {
+  color: white;
+  text-decoration: none;
+}
+
+header button:hover {
+  background-color: #004494;
+}
+
+/* Form Styles */
+.form {
+  background-color: white;
+  margin: 2rem auto;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form input[type="text"],
+.form input[type="date"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form button {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background-color: #0078e7;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background-color: #005bb5;
+}
+
+/* Flight and Weather Info Styles */
+
+main {
+  background-color: white;
+  padding: 2rem;
+  margin: 1rem;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+h2 {
+  border-bottom: 2px solid #0078e7;
+  padding-bottom: 0.5rem;
+  color: #333;
+}
+
+#flightDetails,
+#weatherDetails {
+  white-space: pre-wrap;
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+  header {
+    padding: 10px;
+  }
+
+  footer {
+    padding: 10px;
+  }
+}
