@@ -1,45 +1,12 @@
-// // first API that give original sky, destination, date of travel and returen.
-const url1 =
-  "https://sky-scrapper.p.rapidapi.com/api/v1/flights/getPriceCalendar?originSkyId=BOM&destinationSkyId=JFK&fromDate=2024-02-20";
-const options1 = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": "eccc5f3a4cmsh90835496bbff0a0p1d1487jsn9b7579e3d4d2",
-    "X-RapidAPI-Host": "sky-scrapper.p.rapidapi.com",
-  },
-};
+document.getElementById('flightForm').addEventListener('submit', function (e) {
+  e.preventDefault();
 
-try {
-  const response = fetch(url, options)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-    });
-} catch (error) {
-  console.error(error);
-}
+  const origin = document.getElementById('origin').value;
+  const destination = document.getElementById('destination').value;
+  const departDate = document.getElementById('departDate').value;
+  const returnDate = document.getElementById('returnDate').value;
+ 
 
-// // // SECOUND API
-const url2 =
-  "https://weatherbit-v1-mashape.p.rapidapi.com/forecast/3hourly?lat=35.5&lon=-78.5";
-const options2 = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": "eccc5f3a4cmsh90835496bbff0a0p1d1487jsn9b7579e3d4d2",
-    "X-RapidAPI-Host": "weatherbit-v1-mashape.p.rapidapi.com",
-  },
-};
-
-try {
-  const response = fetch(url, options)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-    });
-} catch (error) {
-  console.error(error);
-}
+  const queryString = `?origin=${origin}&destination=${destination}&departDate=${departDate}&returnDate=${returnDate}`;
+  window.location.href = `secound.html${queryString}`;
+});
