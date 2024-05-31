@@ -19,7 +19,7 @@ window.addEventListener("load", async function () {
                                       </ul>`;
   };
   const fetchFlightInfo = async () => {
-    const url1 = `http://api.aviationstack.com/v1/flights?access_key=b860459554488b5f10ca3fb3f046a2ac`;
+    // const url1 = `http://api.aviationstack.com/v1/flights?access_key=b860459554488b5f10ca3fb3f046a2ac`;
     const options1 = {
       method: "GET",
     };
@@ -57,7 +57,7 @@ window.addEventListener("load", async function () {
     const options2 = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "9d03b74520msh4dde0b7de087279p1db39djsn458074310cff",
+        // "X-RapidAPI-Key": "9d03b74520msh4dde0b7de087279p1db39djsn458074310cff",
         "X-RapidAPI-Host": "open-weather13.p.rapidapi.com",
       },
     };
@@ -87,7 +87,7 @@ window.addEventListener("load", async function () {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "9d03b74520msh4dde0b7de087279p1db39djsn458074310cff",
+        // "X-RapidAPI-Key": "9d03b74520msh4dde0b7de087279p1db39djsn458074310cff",
         "X-RapidAPI-Host": "open-weather13.p.rapidapi.com",
       },
     };
