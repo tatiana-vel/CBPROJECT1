@@ -10,3 +10,4 @@ document.getElementById('flightForm').addEventListener('submit', function (e) {
   const queryString = `?origin=${origin}&destination=${destination}&departDate=${departDate}&returnDate=${returnDate}`;
   window.location.href = `secound.html${queryString}`;
 });
+$(document).foundation();
