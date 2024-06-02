@@ -1,31 +1,50 @@
+const access_key = "ab668de2367deb17548466790b816817";
+const weatherAPIKey = "9990878e4fmshdb651a79b350088p178370jsn741b1b85ff98";
+
 window.addEventListener("load", async function () {
   const params = new URLSearchParams(window.location.search);
-  const origin = params.get("origin");
-  const destination = params.get("destination");
-  const departDate = params.get("departDate");
-  const returnDate = params.get("returnDate");
+  const origin = params.get("origin") || "";
+  const destination = params.get("destination") || "";
+  const departDate = params.get("departDate") || "";
+  const returnDate = params.get("returnDate") || "";
 
-  // First API that gives original sky, destination, date of travel and return, and the prices from sky scrapper.\
+  // First API that gives original sky, destination, date of travel and return, and the prices from aviationstack.\
+
   const displayFlightInfo = (flights) => {
     const flightDetailsElement = document.getElementById("flightDetails");
-    flightDetailsElement.innerHTML = `<p>Origin: ${origin}</p>
-                                      <p>Destination: ${destination}</p>
-                                      <p>Departure Date: ${departDate}</p>
-                                      <p>Return Date: ${returnDate}</p>
-                                      <ul>
-                                        ${flights
-                                          .map((flight) => `<li>${flight}</li>`)
-                                          .join("")}
-                                      </ul>`;
+    flightDetailsElement.innerHTML = `<div class="card">
+                                        <div class="card-section">
+                                          <p>Origin: ${origin}</p>
+                                          <p>Destination: ${destination}</p>
+                                          <p>Departure Date: ${departDate}</p>
+                                          <p>Return Date: ${returnDate}</p>
+                                        </div>
+                                      </div>
+                                      <div class="card">
+                                        <div class="card-section">
+                                          <h4>Flights</h4>
+                                          <ul>
+                                            ${flights
+                                              .map(
+                                                (flight) => `
+                                              <li>
+                                                <p>Flight Number: ${flight.flight.number}</p>
+                                                <p>Flight Date: ${flight.flight_date}</p>
+                                                <p>Departure Airport: ${flight.departure.airport}</p>
+                                                <p>Arrival Airport: ${flight.arrival.airport}</p>
+                                                <p>Airline: ${flight.airline}</p>
+                                              </li>
+                                            `
+                                              )
+                                              .join("")}
+                                          </ul>
+                                        </div>
+                                      </div>`;
   };
   const fetchFlightInfo = async () => {
-    // const url1 = `http://api.aviationstack.com/v1/flights?access_key=b860459554488b5f10ca3fb3f046a2ac`;
-    const options1 = {
-      method: "GET",
-    };
-
+    const url1 = `http://api.aviationstack.com/v1/flights?access_key=${access_key}`;
     try {
-      const response = await fetch(url1, options1);
+      const response = await fetch(url1);
       const data = await response.json();
       console.log("Flight Data:", data);
 
@@ -44,21 +63,26 @@ window.addEventListener("load", async function () {
         "<p>Error fetching flight information.</p>";
     }
   };
+
   // Second API that displays the weather from Open Weather.
   const displayWeatherInfo = (weather) => {
     const weatherDetailsElement = document.getElementById("weatherDetails");
-    weatherDetailsElement.innerHTML = `<p>Weather in ${weather.name}:</p>
-                                        <p>Temperature: ${weather.main.temp}°C</p>
-                                        <p>Weather: ${weather.weather[0].description}</p>`;
+    weatherDetailsElement.innerHTML = `<div class="card">
+                                          <div class="card-section">
+                                            <h4>Weather in ${weather.name}</h4>
+                                            <p>Temperature: ${weather.main.temp}°C</p>
+                                            <p>Weather: ${weather.weather[0].description}</p>
+                                          </div>
+                                        </div>`;
   };
 
-  const fetchWeatherInfo = async (lat, lon) => {
-    const url2 = `https://open-weather13.p.rapidapi.com/city/latlon/${lat}/${lon}`;
+  const fetchWeatherInfo = async (destination) => {
+    const url2 = `https://open-weather13.p.rapidapi.com/city/${destination}/EN`;
     const options2 = {
       method: "GET",
       headers: {
-        // "X-RapidAPI-Key": "9d03b74520msh4dde0b7de087279p1db39djsn458074310cff",
-        "X-RapidAPI-Host": "open-weather13.p.rapidapi.com",
+        "x-rapidapi-key": weatherAPIKey,
+        "x-rapidapi-host": "open-weather13.p.rapidapi.com",
       },
     };
     try {
@@ -81,27 +105,6 @@ window.addEventListener("load", async function () {
         "<p>Error fetching weather information.</p>";
     }
   };
-  // API 3 that pull city weatherwe need lat and lon.
-  async function cityWeather(destination) {
-    const url = `https://open-weather13.p.rapidapi.com/city/${destination}/EN`;
-    const options = {
-      method: "GET",
-      headers: {
-        // "X-RapidAPI-Key": "9d03b74520msh4dde0b7de087279p1db39djsn458074310cff",
-        "X-RapidAPI-Host": "open-weather13.p.rapidapi.com",
-      },
-    };
-
-    try {
-      const response = await fetch(url, options);
-      const result = await response.json();
-      console.log(result);
-      console.log(result.weather.description);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-  cityWeather(destination);
   fetchFlightInfo();
-  fetchWeatherInfo();
-}); 
+  fetchWeatherInfo(destination);
+});
