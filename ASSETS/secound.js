@@ -1,9 +1,11 @@
-const access_key = 'b860459554488b5f10ca3fb3f046a2ac';
+const access_key = 'b9f0b894754ddf0f7168cd1d6c49fabd';
+const weather_api_key = '2ee2b5611emsh448f1a1bdd44662p1ac6fajsnf171177881bd';
+//use your own API
 
 window.addEventListener("load", async function () {
   const params = new URLSearchParams(window.location.search);
   const origin = params.get("origin");
-  const destination = params.get("destination");
+  const destination = params.geti("destnation");
   const departDate = params.get("departDate");
   const returnDate = params.get("returnDate");
 
@@ -36,11 +38,11 @@ window.addEventListener("load", async function () {
                                         <div class="cell small-12 medium-12 large-12">
                                           <div class="card border">
                                               <div class="card-section">
-                                                  <p> <span>Flight Number</span>: ${data[0].flight.number}</p>
                                                   <p> <span>Flight Date</span>: ${data[0].flight_date}</p>
+                                                  <p> <span>Flight Number</span>: ${data[0].flight.number}</p>
                                                   <p> <span>Departure Airport</span>: ${data[0].departure.airport}</p>
                                                   <p> <span>Arrival Airport</span>: ${data[0].arrival.airport}</p>
-                                                  <p> <span>Airline</span>: ${data[0].airline}</p>
+                                                  <p> <span>Airline</span>: ${data[0].airline.name}</p>
                                               </div>
                                           </div>
                                           <div class="card border">
@@ -49,7 +51,7 @@ window.addEventListener("load", async function () {
                                                   <p> <span>Flight Date</span>: ${data[1].flight_date}</p>
                                                   <p> <span>Departure Airport</span>: ${data[1].departure.airport}</p>
                                                   <p> <span>Arrival Airport</span>: ${data[1].arrival.airport}</p>
-                                                  <p> <span>Airline</span>: ${data[1].airline}</p>
+                                                  <p> <span>Airline</span>: ${data[1].airline.name}</p>
                                               </div>
                                           </div>
                                           <div class="card border">
@@ -58,7 +60,7 @@ window.addEventListener("load", async function () {
                                                   <p> <span>Flight Date</span>: ${data[2].flight_date}</p>
                                                   <p> <span>Departure Airport</span>: ${data[2].departure.airport}</p>
                                                   <p> <span>Arrival Airport</span>: ${data[2].arrival.airport}</p>
-                                                  <p> <span>Airline</span>: ${data[2].airline}</p>
+                                                  <p> <span>Airline</span>: ${data[2].airline.name}</p>
                                               </div>
                                           </div>
                                       </div>
@@ -67,24 +69,14 @@ window.addEventListener("load", async function () {
                                       `;
   };
   const fetchFlightInfo = async () => {
-    const baseURL = "https://api.aviationstack.com/v1/flights";
+    const baseURL = "http://api.aviationstack.com/v1/flights";
     const params = new URLSearchParams();
     params.append('access_key', access_key);
     params.append('limit', '3');
     params.append('flight_status', 'scheduled');
 
     try {
-      params.append('dep_iata', await getCityIata(destination));
-    }
-    catch (error){
-      console.error("Error getting city:", error);
-      const flightDetailsElement = document.getElementById("flightDetails");
-      flightDetailsElement.innerHTML = `<p>City named "${destination}" not found.</p>`;
-      return;
-    }
-
-    try {
-      params.append('arr_iata', await getCityIata(origin));
+      params.append('dep_iata', await getCityIata(origin));
     }
     catch (error){
       console.error("Error getting city:", error);
@@ -93,8 +85,19 @@ window.addEventListener("load", async function () {
       return;
     }
 
-    params.append('arr_scheduled_time_arr', returnDate);
+    try {
+      params.append('arr_iata', await getCityIata(destination));
+    }
+    catch (error){
+      console.error("Error getting city:", error);
+      const flightDetailsElement = document.getElementById("flightDetails");
+      flightDetailsElement.innerHTML = `<p>City named "${destination}" not found.</p>`;
+      return;
+    }
+
+    // params.append('arr_scheduled_time_arr', returnDate);
     params.append('arr_scheduled_time_dep', departDate);
+    // params.append('flight_date', departDate);
 
     const url = new URL(baseURL);
     url.search = params.toString();
@@ -103,7 +106,9 @@ window.addEventListener("load", async function () {
     };
     try {
       const response = await fetch(url, options);
+      // const response = await fetch("./100flight.json");
       const data = await response.json();
+      // const data = response;
       console.log("Flight Data:", data);
 
       if (data && data.data) {
@@ -124,7 +129,7 @@ window.addEventListener("load", async function () {
   async function getCityIata(cityName){
     // search feature is ony available for paid plans
     // so we're fetch all cities and search ourselves
-    const baseURL = "https://api.aviationstack.com/v1/cities";
+    const baseURL = "http://api.aviationstack.com/v1/cities";
     const params = new URLSearchParams();
     params.append('access_key', access_key);
     const url = new URL(baseURL);
@@ -132,8 +137,11 @@ window.addEventListener("load", async function () {
     const options = {
         method: "GET",
     };
-    const response = await fetch(url, options);
+    // const response = await fetch(url, options);
+    const response = await fetch("./100cities.json");
     const jsonResponse = await response.json();
+    // const jsonResponse = response;
+
     const city = jsonResponse.data.filter((city) => {
         return city.city_name.startsWith(cityName);
     })[0];
@@ -198,7 +206,7 @@ window.addEventListener("load", async function () {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "9d03b74520msh4dde0b7de087279p1db39djsn458074310cff",
+        "X-RapidAPI-Key": weather_api_key,
         "X-RapidAPI-Host": "open-weather13.p.rapidapi.com",
       },
     };
@@ -207,9 +215,9 @@ window.addEventListener("load", async function () {
       const response = await fetch(url, options);
       const result = await response.json();
       console.log(result);
-      console.log(result.weather.description);
-      // let location = result.weather.location
-      // let description = result.weather.description
+      console.log(result.weather[0].description);
+      let location = result.name;
+      let description = result.weather[0].description;
       displayWeatherInfo(location, description);
     } catch (error) {
       console.error(error);
@@ -219,5 +227,8 @@ window.addEventListener("load", async function () {
 
   cityWeather(destination);
   fetchFlightInfo();
-  fetchWeatherInfo();
+  // fetchWeatherInfo();
+
+
+  
 });

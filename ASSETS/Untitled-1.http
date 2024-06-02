@@ -1,0 +1,10 @@
+GET http://api.aviationstack.com/v1/flights?access_key=b9f0b894754ddf0f7168cd1d6c49fabd
+###
+GET http://api.aviationstack.com/v1/flights?access_key=b9f0b894754ddf0f7168cd1d6c49fabd&limit=3
+&dep_iata=ACC&arr_iata=ADD
+&arr_scheduled_time_dep=2024-06-04
+
+
+curl --request GET \
+  --url 'http://api.aviationstack.com/v1/flights?access_key=b9f0b894754ddf0f7168cd1d6c49fabd' \
+  --header 'user-agent: vscode-restclient'
