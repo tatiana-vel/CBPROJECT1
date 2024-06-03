@@ -5,7 +5,7 @@ const weather_api_key = '2ee2b5611emsh448f1a1bdd44662p1ac6fajsnf171177881bd';
 window.addEventListener("load", async function () {
   const params = new URLSearchParams(window.location.search);
   const origin = params.get("origin");
-  const destination = params.geti("destnation");
+  const destination = params.get("destination");
   const departDate = params.get("departDate");
   const returnDate = params.get("returnDate");
 
@@ -15,89 +15,78 @@ window.addEventListener("load", async function () {
     flightDetailsElement.innerHTML = `                                   
                                       <div class="grid-container">
                                         <div class="grid-x grid-margin-x align-center">
-                                        <div class="cell small-12 medium-6 large-6">
-                                            <div class="card">
-                                                <div class="card-section">
-                                                  <p>Origin: ${origin}</p>
-                                                  <p>Destination: ${destination}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="cell small-12 medium-6 large-6">
-                                            <div class="card">
-                                                <div class="card-section">
-                                                  <p>Departure Date: ${departDate}</p>
-                                                  <p>Return Date: ${returnDate}</p>
-                                                </div>
-                                            </div>
+                                          <div class="cell small-12 medium-6 large-6">
+                                              <div class="card">
+                                                  <div class="card-section">
+                                                    <p>Origin: ${origin}</p>
+                                                    <p>Destination: ${destination}</p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="cell small-12 medium-6 large-6">
+                                              <div class="card">
+                                                  <div class="card-section">
+                                                    <p>Departure Date: ${departDate}</p>
+                                                    <p>Return Date: ${returnDate}</p>
+                                                  </div>
+                                              </div>
+                                          </div>
                                         </div>
                                       </div>
                                       <div class="grid-container">
+                                        <div class="grid-x grid-margin-x align-center">
 
-                                      <div class="grid-x grid-margin-x align-center">
-                                        <div class="cell small-12 medium-12 large-12">
-                                          <div class="card border">
-                                              <div class="card-section">
-                                                  <p> <span>Flight Date</span>: ${data[0].flight_date}</p>
-                                                  <p> <span>Flight Number</span>: ${data[0].flight.number}</p>
-                                                  <p> <span>Departure Airport</span>: ${data[0].departure.airport}</p>
-                                                  <p> <span>Arrival Airport</span>: ${data[0].arrival.airport}</p>
-                                                  <p> <span>Airline</span>: ${data[0].airline.name}</p>
-                                              </div>
-                                          </div>
-                                          <div class="card border">
-                                              <div class="card-section">
-                                                  <p> <span>Flight Number</span>: ${data[1].flight.number}</p>
-                                                  <p> <span>Flight Date</span>: ${data[1].flight_date}</p>
-                                                  <p> <span>Departure Airport</span>: ${data[1].departure.airport}</p>
-                                                  <p> <span>Arrival Airport</span>: ${data[1].arrival.airport}</p>
-                                                  <p> <span>Airline</span>: ${data[1].airline.name}</p>
-                                              </div>
-                                          </div>
-                                          <div class="card border">
-                                              <div class="card-section">
-                                                  <p> <span>Flight Number</span>: ${data[2].flight.number}</p>
-                                                  <p> <span>Flight Date</span>: ${data[2].flight_date}</p>
-                                                  <p> <span>Departure Airport</span>: ${data[2].departure.airport}</p>
-                                                  <p> <span>Arrival Airport</span>: ${data[2].arrival.airport}</p>
-                                                  <p> <span>Airline</span>: ${data[2].airline.name}</p>
-                                              </div>
-                                          </div>
+                                          ${
+                                            data.map((flight)=>(
+                                            `<div class="cell small-12 medium-4 large-4">
+                                                      <div class="card border">
+                                                          <div class="card-section">
+                                                              <p> <span>Flight Date</span>: ${flight.flight_date}</p>
+                                                              <p> <span>Flight Number</span>: ${flight.flight.number}</p>
+                                                              <p> <span>Departure Airport</span>: ${flight.departure.airport}</p>
+                                                              <p> <span>Arrival Airport</span>: ${flight.arrival.airport}</p>
+                                                              <p> <span>Airline</span>: ${flight.airline.name}</p>
+                                                          </div>
+                                                      </div>
+
+                                            </div>`
+                                            )).join("")
+                                            }
+
+                                        </div>
                                       </div>
-                                      </div>
-                                  </div>
                                       `;
   };
   const fetchFlightInfo = async () => {
     const baseURL = "http://api.aviationstack.com/v1/flights";
     const params = new URLSearchParams();
     params.append('access_key', access_key);
-    params.append('limit', '3');
-    params.append('flight_status', 'scheduled');
+    const limit = 3;
+    params.append('limit', limit.toString());
+    // params.append('flight_status', 'scheduled');
 
-    try {
-      params.append('dep_iata', await getCityIata(origin));
-    }
-    catch (error){
-      console.error("Error getting city:", error);
-      const flightDetailsElement = document.getElementById("flightDetails");
-      flightDetailsElement.innerHTML = `<p>City named "${origin}" not found.</p>`;
-      return;
-    }
+    // try {
+    //   params.append('dep_iata', await getCityIata(origin));
+    // }
+    // catch (error){
+    //   console.error("Error getting city:", error);
+    //   const flightDetailsElement = document.getElementById("flightDetails");
+    //   flightDetailsElement.innerHTML = `<p>City named "${origin}" not found.</p>`;
+    //   return;
+    // }
 
-    try {
-      params.append('arr_iata', await getCityIata(destination));
-    }
-    catch (error){
-      console.error("Error getting city:", error);
-      const flightDetailsElement = document.getElementById("flightDetails");
-      flightDetailsElement.innerHTML = `<p>City named "${destination}" not found.</p>`;
-      return;
-    }
+    // try {
+    //   params.append('arr_iata', await getCityIata(destination));
+    // }
+    // catch (error){
+    //   console.error("Error getting city:", error);
+    //   const flightDetailsElement = document.getElementById("flightDetails");
+    //   flightDetailsElement.innerHTML = `<p>City named "${destination}" not found.</p>`;
+    //   return;
+    // }
 
-    // params.append('arr_scheduled_time_arr', returnDate);
-    params.append('arr_scheduled_time_dep', departDate);
-    // params.append('flight_date', departDate);
+    // params.append('arr_scheduled_time_dep', departDate);
+    // // params.append('flight_date', departDate);
 
     const url = new URL(baseURL);
     url.search = params.toString();
@@ -105,14 +94,14 @@ window.addEventListener("load", async function () {
         method: "GET",
     };
     try {
-      const response = await fetch(url, options);
-      // const response = await fetch("./100flight.json");
+      // const response = await fetch(url, options);
+      const response = await fetch("./100flight.json");
       const data = await response.json();
       // const data = response;
       console.log("Flight Data:", data);
 
       if (data && data.data) {
-        displayFlightInfo(data.data);
+        displayFlightInfo(data.data.slice(0,limit));
       } else {
         console.error("Invalid flight data structure:", data);
         const flightDetailsElement = document.getElementById("flightDetails");
@@ -126,42 +115,43 @@ window.addEventListener("load", async function () {
         "<p>Error fetching flight information.</p>";
     }
   };
-  async function getCityIata(cityName){
-    // search feature is ony available for paid plans
-    // so we're fetch all cities and search ourselves
-    const baseURL = "http://api.aviationstack.com/v1/cities";
-    const params = new URLSearchParams();
-    params.append('access_key', access_key);
-    const url = new URL(baseURL);
-    url.search = params.toString();
-    const options = {
-        method: "GET",
-    };
-    // const response = await fetch(url, options);
-    const response = await fetch("./100cities.json");
-    const jsonResponse = await response.json();
-    // const jsonResponse = response;
+//   async function getCityIata(cityName){
+//     // search feature is ony available for paid plans
+//     // so we're fetch all cities and search ourselves
+//     const baseURL = "http://api.aviationstack.com/v1/cities";
+//     const params = new URLSearchParams();
+//     params.append('access_key', access_key);
+//     const url = new URL(baseURL);
+//     url.search = params.toString();
+//     const options = {
+//         method: "GET",
+//     };
+//     // const response = await fetch(url, options);
+//     const response = await fetch("./100cities.json");
+//     const jsonResponse = await response.json();
+//     // const jsonResponse = response;
 
-    const city = jsonResponse.data.filter((city) => {
-        return city.city_name.startsWith(cityName);
-    })[0];
-    return city.iata_code;
-}
+//     const city = jsonResponse.data.filter((city) => {
+//         return city.city_name.startsWith(cityName);
+//     })[0];
+//     return city.iata_code;
+// }
 
   // Second API that displays the weather from Open Weather.
-  const displayWeatherInfo = (location, description) => {
+  const displayWeatherInfo = (weatherResult) => {
     const weatherDetailsElement = document.getElementById("weatherDetails");
     weatherDetailsElement.innerHTML = `                               
                                       <div class="grid-container">
                                         <div class="grid-x grid-margin-x align-center">
-                                        <div class="cell small-12 medium-6 large-6">
-                                            <div class="card">
-                                                <div class="card-section">
-                                                  <p>Here's a description of the weather in ${location}</p>
-                                                  <p>description: The weather looks ${description}</p>
+                                            <div class="cell small-12 medium-6 large-6">
+                                                <div class="card">
+                                                    <div class="card-section">
+                                                    <p>Here's a description of the weather in ${weatherResult.name}:</p>
+                                                    <p>Temperature: ${weatherResult.main.temp}F</p>
+                                                    <p>Description: ${weatherResult.weather[0].description}</p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
                                         </div>
                                       </div>
                                       `;
@@ -214,11 +204,11 @@ window.addEventListener("load", async function () {
     try {
       const response = await fetch(url, options);
       const result = await response.json();
-      console.log(result);
-      console.log(result.weather[0].description);
-      let location = result.name;
-      let description = result.weather[0].description;
-      displayWeatherInfo(location, description);
+    //   console.log(result);
+    //   console.log(result.weather[0].description);
+    //   let location = result.name;
+    //   let description = result.weather[0].description;
+      displayWeatherInfo(result);
     } catch (error) {
       console.error(error);
     }
