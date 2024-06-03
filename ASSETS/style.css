@@ -9,6 +9,12 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.image {
+  max-width: 100%;
+  height: auto;
+}
+
 header {
   background-color: #CCCCFF;
   color: white;
@@ -40,10 +46,10 @@ header button:hover {
 
 /* Form Styles */
 .form {
-  background-color: white;
+  background-color: #d2d6fd;
   margin: 2rem auto;
   padding: 2rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
 }
 
 .form label {
@@ -51,6 +57,14 @@ header button:hover {
   display: block;
   margin-bottom: 0.5rem;
 }
+
+img {
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.5rem;
+  }
 
 .form input[type="text"],
 .form input[type="date"] {
