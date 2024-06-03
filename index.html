@@ -55,19 +55,29 @@
         <button type="submit" class="button">
           ✈️ Book Your Flight Here! ✈️
         </button>
-        <p><button class="button" data-open="exampleModal1">✈️ Search History ✈️</button></p>
-        <div class="reveal custom-modal" id="exampleModal1" data-reveal>
-          <h1>Search History</h1>
-          <p class="lead">Your couch. It is mine.</p>
-          <!-- <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p> -->
-          <button class="close-button" data-close aria-label="Close modal" type="button">
-            <span aria-hidden="true">&times;</span>
-         
-    </div>
+      </form>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+  <button type="button" class="button expanded" data-open="searchHistoryModal">
+  Search History
+  </button>
+</div>
+</div>
+</div>
+</div>
+<div class="reveal" id="searchHistoryModal" data-reveal>
+<h2>Search History</h2>
+<ul id="historyList">
+<!-- Search history items will be added here dynamically -->
+</ul>
+<button class="close-button" data-close aria-label="Close modal" type="button">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js" crossorigin="anonymous"></script>
-
+  
     <script src="./ASSETS/index.js"></script>
   </body>
 </html>
