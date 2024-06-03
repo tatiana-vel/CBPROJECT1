@@ -118,5 +118,5 @@ h2 {
   width: 80%; /* Custom width */
   max-width: none; /* Disable max-width */
   height: 20px; /* Custom height */
-  margin: auto; Center the modal
+  margin: auto; /* Center the modal */
 }

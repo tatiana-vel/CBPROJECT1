@@ -102,7 +102,7 @@ window.addEventListener("load", async function () {
                                                 <div class="card">
                                                     <div class="card-section">
                                                     <p>Here's a description of the weather in ${weatherResult.name}:</p>
-                                                    <p>Temperature: ${weatherResult.main.temp}F</p>
+                                                    <p>Temperature: ${weatherResult.main.temp}°F</p>
                                                     <p>Description: ${weatherResult.weather[0].description}</p>
                                                     </div>
                                                 </div>
@@ -128,7 +128,9 @@ window.addEventListener("load", async function () {
 
     try {
       const response = await fetch(url, options);
+      // const response = await fetch("sampleWeatherAPIResponse.json");
       const result = await response.json();
+      // result.name = destination;
 
       displayWeatherInfo(result);
     } catch (error) {
