@@ -28,7 +28,7 @@ Meadin Menbere
 
  /ASSETS
         style.css   
-        second.css   
+        secound.css   
         index.js        
         secound.js      
     secound.html   
@@ -42,10 +42,10 @@ Meadin Menbere
 
 
 
-### Link to REpository
+### Link to the Repository
 
 https://github.com/tatiana-vel/CBPROJECT1.git
 
 ## screenshot
 
-Linked on the asserts folder.
+Linked on the assets folder.

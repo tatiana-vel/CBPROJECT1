@@ -29,28 +29,49 @@ $('#flightForm').on('submit', function(event) {
   searchHistory.push({ origin, destination, departDate, returnDate });
   localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
   
-  // Clear the form after submission
+  // Clear the form after submission and displayting the message that search history is saved 
   $('#flightForm')[0].reset();
 
   alert('Flight booked and search history saved!');
 });
 
-// Populate search history modal
+// Populate search history modal 
 function populateSearchHistory() {
-  const historyList = $('#historyList');
+  const historyList = $('#historyList');  
   historyList.empty();
   
   const searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
   
   searchHistory.forEach((search, index) => {
-    const listItem = `
-      <li>
-        <button class="button expanded" onclick="location.href='http://example.com/from-${search.origin.toLowerCase()}-to-${search.destination.toLowerCase()}'">From: ${search.origin} - To: ${search.destination}</button>
-      </li>
-    `;
-    historyList.append(listItem);
+      const listItem = `
+          <li>
+              <button class="button expanded search-history-item" 
+                      data-origin="${search.origin}" 
+                      data-destination="${search.destination}" 
+                      data-departdate="${search.departDate}" 
+                      data-returndate="${search.returnDate}">
+                  From: ${search.origin} - To: ${search.destination}
+              </button>
+          </li>
+      `;
+      historyList.append(listItem);
   });
 }
+
+// Event listener to populate form with search history data
+$('#historyList').on('click', '.search-history-item', function() {
+  const origin = $(this).data('origin');
+  const destination = $(this).data('destination');
+  const departDate = $(this).data('departdate');
+  const returnDate = $(this).data('returndate');
+  
+  $('#origin').val(origin);
+  $('#destination').val(destination);
+  $('#departDate').val(departDate);
+  $('#returnDate').val(returnDate);
+
+  $('#searchHistoryModal').foundation('close');
+});
 
 // Show search history modal
 $('[data-open="searchHistoryModal"]').on('click', function() {
