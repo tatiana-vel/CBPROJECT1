@@ -1,6 +1,6 @@
 # Project name
 
-    XOXO Flight Availablity APP
+    XOXO Flights
 
 ## project description:
 
@@ -104,11 +104,12 @@ The Flight Availability and Weather Tracker offers the following features:
 ## file structure
 
  /ASSETS
-        style.css      
+        style.css   
+        second.css   
         index.js        
-        secound.js      
-    secound.html   
+        second.js      
     index.html
+    second.html 
     README.md
 
 
@@ -122,7 +123,8 @@ The Flight Availability and Weather Tracker offers the following features:
 
 ### Link to Repository
 
-## screenshot
+https://github.com/tatiana-vel/CBPROJECT1
+
 
 
 
