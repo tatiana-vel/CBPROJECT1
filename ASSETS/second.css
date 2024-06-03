@@ -1,37 +1,37 @@
 body{
-    background: url(./Screenshot\ 2024-05-22\ 200201.png);
-    background-size: 100%;
+  background: url(./Screenshot\ 2024-05-22\ 200201.png);
+  background-size: 100%;
 }
 
 main{
-    background-color: white;
-      padding: 2rem;
-      margin: 1rem;
-      max-width:90%;
-      width: 100%;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-  }
-   h2 {
-    border-bottom: 2px solid #610400;
-    padding-bottom: 0.5rem;
-    color: #333;
-    text-align: center;
-  }
-  header{
-    color: aliceblue;
-   margin: auto;
-   text-align: center;
-    
-  }
+  background-color: #BDE0FE;
+    padding: 2rem;
+    margin: 1rem;
+    max-width:90%;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+ h2 {
+  border-bottom: 2px solid #610400;
+  padding-bottom: 0.5rem;
+  color: #333;
+  text-align: center;
+}
+header{
+  color: aliceblue;
+ margin: auto;
+ text-align: center;
+  
+}
 .button:hover{
-    background-color: #004494;
-    
+  background-color: #004494;
+  
 }
 header button a {
-  color: white;
+color: white;
 }
 
 header button a:hover {
-  color: white;
+color: white;
 }
