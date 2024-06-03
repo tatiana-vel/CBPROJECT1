@@ -14,7 +14,7 @@ As a traveler , I need an app where I can track the flights and see the prices, 
 ## Technology
 
 . CSS Foundation
-. sky-scrapper (Flight API).
+. aviationstack (Flight API).
 . Open Weather (weather API).
 
 ## Created By
@@ -27,20 +27,24 @@ Meadin Menbere
 ## file structure
 
  /ASSETS
-        style.css      
+        style.css   
+        second.css   
         index.js        
         secound.js      
     secound.html   
     index.html
     README.md
 
-## DEployment link
+## Deployment link
+
+
+
 
 
 
 ### Link to REpository
 
-
+https://github.com/tatiana-vel/CBPROJECT1.git
 
 ## screenshot
 

@@ -45,7 +45,7 @@ function populateSearchHistory() {
   searchHistory.forEach((search, index) => {
     const listItem = `
       <li>
-        <button class="button expanded" onclick="location.href='https://example.com/from-${search.origin.toLowerCase()}-to-${search.destination.toLowerCase()}'">From: ${search.origin} - To: ${search.destination}</button>
+        <button class="button expanded" onclick="location.href='http://example.com/from-${search.origin.toLowerCase()}-to-${search.destination.toLowerCase()}'">From: ${search.origin} - To: ${search.destination}</button>
       </li>
     `;
     historyList.append(listItem);
