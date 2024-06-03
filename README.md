@@ -1,13 +1,10 @@
-# Project name
+# XOXO Flights
 
-    XOXO Flights
+## Description:
 
-## project description:
-
-Description:
 The Flight Availability and Weather Tracker is a tool designed to help users find available flights and obtain weather information for their destination. By entering the origin, destination, and date of travel, users can access a list of available flights for their specified route and date. Additionally, the tool provides the weather conditions at the destination, allowing users to better plan their trips.
 
-Purpose:
+## Purpose:
 The purpose of this project is to provide travelers with a convenient way to check flight availability and weather conditions in one place. This helps users make informed decisions about their travel plans, ensuring they have the latest information on both flight options and destination weather.
 
 ### Installation Instructions
@@ -91,19 +88,20 @@ The Flight Availability and Weather Tracker offers the following features:
 - **CSS**: Used for styling the web pages.
 - **Foundation CSS Framework**: Used to streamline and enhance the CSS styling.
 - **JavaScript**: Used for client-side scripting to enhance interactivity.
+- **JQuery**: Used to 
 - **Rapid Weather API**: Integrated to fetch weather data.
 - **Aviation Stack API**: Integrated to retrieve aviation-related information.
 
 ## Created By
 
-- Sofia Kaminski
 - Aminata Sall
-- Tatiana Velardo
 - Meadin Menbere
+- Sofia Kaminski
+- Tatiana Velardo
 
-## file structure
+## File Structure
 
- /ASSETS
+   /ASSETS
         style.css   
         second.css   
         index.js        
@@ -119,10 +117,9 @@ The Flight Availability and Weather Tracker offers the following features:
 ![Screenshot of Project](secondpage.png)
 
 
-## Deployment link
+## Deployment Link
 
 ### Link to Repository
-
 https://github.com/tatiana-vel/CBPROJECT1
 
 
