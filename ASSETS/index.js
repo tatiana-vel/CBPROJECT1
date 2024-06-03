@@ -43,11 +43,16 @@ function populateSearchHistory() {
   const searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
   
   searchHistory.forEach((search, index) => {
+    const queryString = `?origin=${search.origin.toLowerCase()}&destination=${search.destination.toLowerCase()}&departDate=${search.departDate.toLowerCase()}&returnDate=${search.returnDate.toLowerCase()}`;
+    const url = `secound.html${queryString}`;
     const listItem = `
       <li>
-        <button class="button expanded" onclick="location.href='https://example.com/from-${search.origin.toLowerCase()}-to-${search.destination.toLowerCase()}'">From: ${search.origin} - To: ${search.destination}</button>
-      </li>
-    `;
+        <button class="button expanded"
+         onclick="location.href='${url}'">
+         From: ${search.origin} - To: ${search.destination}
+         </button>
+      </li>`
+    ;
     historyList.append(listItem);
   });
 }
