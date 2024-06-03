@@ -44,7 +44,7 @@ function populateSearchHistory() {
   
   searchHistory.forEach((search, index) => {
     const queryString = `?origin=${search.origin.toLowerCase()}&destination=${search.destination.toLowerCase()}&departDate=${search.departDate.toLowerCase()}&returnDate=${search.returnDate.toLowerCase()}`;
-    const url = `secound.html${queryString}`;
+    const url = `second.html${queryString}`;
     const listItem = `
       <li>
         <button class="button expanded"
