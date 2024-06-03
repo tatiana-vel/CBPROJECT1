@@ -4,7 +4,7 @@ body{
 }
 
 main{
-    background-color: white;
+    background-color: #BDE0FE;
       padding: 2rem;
       margin: 1rem;
       max-width:90%;
@@ -13,7 +13,7 @@ main{
       border-radius: 8px;
   }
    h2 {
-    border-bottom: 2px solid #0078e7;
+    border-bottom: 2px solid #610400;
     padding-bottom: 0.5rem;
     color: #333;
     text-align: center;
