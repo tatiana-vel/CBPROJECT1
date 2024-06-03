@@ -54,6 +54,8 @@ function populateSearchHistory() {
       </li>`
     ;
     historyList.append(listItem);
+
+    
   });
 }
 
