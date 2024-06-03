@@ -103,6 +103,7 @@ h2 {
   margin-top: 1rem;
 }
 
+
 @media screen and (max-width: 600px) {
   header {
     padding: 10px;
@@ -111,4 +112,11 @@ h2 {
   footer {
     padding: 10px;
   }
+}
+
+.reveal.custom-modal {
+  width: 80%; /* Custom width */
+  max-width: none; /* Disable max-width */
+  height: 20px; /* Custom height */
+  margin: auto; /* Center the modal */
 }

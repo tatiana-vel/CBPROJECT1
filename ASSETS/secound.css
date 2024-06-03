@@ -28,3 +28,10 @@ main{
     background-color: #004494;
     
 }
+header button a {
+  color: white;
+}
+
+header button a:hover {
+  color: white;
+}
