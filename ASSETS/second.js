@@ -70,8 +70,8 @@ window.addEventListener("load", async function () {
       method: "GET",
     };
     try {
-      const response = await fetch(url, options);
-      // const response = await fetch("/100flight.json");
+      // const response = await fetch(url, options);
+      const response = await fetch("/100flights.json");
       const data = await response.json();
 
       console.log("Flight Data:", data);
@@ -127,10 +127,10 @@ window.addEventListener("load", async function () {
     };
 
     try {
-      const response = await fetch(url, options);
-      // const response = await fetch("sampleWeatherAPIResponse.json");
+      // const response = await fetch(url, options);
+      const response = await fetch("sampleWeatherAPIResponse.json");
       const result = await response.json();
-      // result.name = destination;
+      result.name = destination;
 
       displayWeatherInfo(result);
     } catch (error) {

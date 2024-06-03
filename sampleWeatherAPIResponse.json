@@ -1,0 +1,10 @@
+{
+    "main": {
+        "temp": 75
+    },
+    "weather": [
+        {
+            "description": "Sunny"
+        }
+    ]
+}
