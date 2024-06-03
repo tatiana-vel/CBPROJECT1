@@ -1,5 +1,5 @@
-const access_key = 'b9f0b894754ddf0f7168cd1d6c49fabd';
-const weather_api_key = '2ee2b5611emsh448f1a1bdd44662p1ac6fajsnf171177881bd';
+const access_key = 'ab668de2367deb17548466790b816817';
+const weather_api_key = '9990878e4fmshdb651a79b350088p178370jsn741b1b85ff98';
 //use your own API
 
 window.addEventListener("load", async function () {
@@ -36,9 +36,8 @@ window.addEventListener("load", async function () {
                                       <div class="grid-container">
                                         <div class="grid-x grid-margin-x align-center">
 
-                                          ${
-                                            data.map((flight)=>(
-                                            `<div class="cell small-12 medium-4 large-4">
+                                          ${data.map((flight) => (
+                                                `<div class="cell small-12 medium-4 large-4">
                                                       <div class="card border">
                                                           <div class="card-section">
                                                               <p> <span>Flight Date</span>: ${flight.flight_date}</p>
@@ -50,8 +49,8 @@ window.addEventListener("load", async function () {
                                                       </div>
 
                                             </div>`
-                                            )).join("")
-                                            }
+                                              )).join("")
+                                                }
 
                                         </div>
                                       </div>
@@ -63,45 +62,22 @@ window.addEventListener("load", async function () {
     params.append('access_key', access_key);
     const limit = 3;
     params.append('limit', limit.toString());
-    // params.append('flight_status', 'scheduled');
 
-    // try {
-    //   params.append('dep_iata', await getCityIata(origin));
-    // }
-    // catch (error){
-    //   console.error("Error getting city:", error);
-    //   const flightDetailsElement = document.getElementById("flightDetails");
-    //   flightDetailsElement.innerHTML = `<p>City named "${origin}" not found.</p>`;
-    //   return;
-    // }
-
-    // try {
-    //   params.append('arr_iata', await getCityIata(destination));
-    // }
-    // catch (error){
-    //   console.error("Error getting city:", error);
-    //   const flightDetailsElement = document.getElementById("flightDetails");
-    //   flightDetailsElement.innerHTML = `<p>City named "${destination}" not found.</p>`;
-    //   return;
-    // }
-
-    // params.append('arr_scheduled_time_dep', departDate);
-    // // params.append('flight_date', departDate);
 
     const url = new URL(baseURL);
     url.search = params.toString();
     const options = {
-        method: "GET",
+      method: "GET",
     };
     try {
-      // const response = await fetch(url, options);
-      const response = await fetch("./100flight.json");
+      const response = await fetch(url, options);
+      // const response = await fetch("./100flight.json");
       const data = await response.json();
-      // const data = response;
+
       console.log("Flight Data:", data);
 
       if (data && data.data) {
-        displayFlightInfo(data.data.slice(0,limit));
+        displayFlightInfo(data.data.slice(0, limit));
       } else {
         console.error("Invalid flight data structure:", data);
         const flightDetailsElement = document.getElementById("flightDetails");
@@ -115,27 +91,6 @@ window.addEventListener("load", async function () {
         "<p>Error fetching flight information.</p>";
     }
   };
-//   async function getCityIata(cityName){
-//     // search feature is ony available for paid plans
-//     // so we're fetch all cities and search ourselves
-//     const baseURL = "http://api.aviationstack.com/v1/cities";
-//     const params = new URLSearchParams();
-//     params.append('access_key', access_key);
-//     const url = new URL(baseURL);
-//     url.search = params.toString();
-//     const options = {
-//         method: "GET",
-//     };
-//     // const response = await fetch(url, options);
-//     const response = await fetch("./100cities.json");
-//     const jsonResponse = await response.json();
-//     // const jsonResponse = response;
-
-//     const city = jsonResponse.data.filter((city) => {
-//         return city.city_name.startsWith(cityName);
-//     })[0];
-//     return city.iata_code;
-// }
 
   // Second API that displays the weather from Open Weather.
   const displayWeatherInfo = (weatherResult) => {
@@ -157,37 +112,7 @@ window.addEventListener("load", async function () {
                                       `;
   };
 
-  // DO NOT NEED THIS
 
-  // const fetchWeatherInfo = async (lat, lon) => {
-  //   const url2 = https://open-weather13.p.rapidapi.com/city/latlon/${lat}/${lon};
-  //   const options2 = {
-  //     method: "GET",
-  //     headers: {
-  //       "X-RapidAPI-Key": "9d03b74520msh4dde0b7de087279p1db39djsn458074310cff",
-  //       "X-RapidAPI-Host": "open-weather13.p.rapidapi.com",
-  //     },
-  //   };
-  //   try {
-  //     const response = await fetch(url2, options2);
-  //     const data = await response.json();
-  //     console.log("Weather Data:", data);
-
-  //     if (data && data.name && data.main && data.weather) {
-  //       displayWeatherInfo(data);
-  //     } else {
-  //       console.error("Invalid weather data structure:", data);
-  //       const weatherDetailsElement = document.getElementById("weatherDetails");
-  //       weatherDetailsElement.innerHTML =
-  //         "<p>No weather information available.</p>";
-  //     }
-  //   } catch (error) {
-  //     console.error("Error fetching weather data:", error);
-  //     const weatherDetailsElement = document.getElementById("weatherDetails");
-  //     weatherDetailsElement.innerHTML =
-  //       "<p>Error fetching weather information.</p>";
-  //   }
-  // };
 
 
   // API 3 that pull city weather we need lat and lon.
@@ -204,10 +129,7 @@ window.addEventListener("load", async function () {
     try {
       const response = await fetch(url, options);
       const result = await response.json();
-    //   console.log(result);
-    //   console.log(result.weather[0].description);
-    //   let location = result.name;
-    //   let description = result.weather[0].description;
+
       displayWeatherInfo(result);
     } catch (error) {
       console.error(error);
@@ -217,8 +139,8 @@ window.addEventListener("load", async function () {
 
   cityWeather(destination);
   fetchFlightInfo();
-  // fetchWeatherInfo();
 
 
-  
+
+
 });
