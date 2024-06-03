@@ -70,8 +70,8 @@ window.addEventListener("load", async function () {
       method: "GET",
     };
     try {
-      const response = await fetch(url, options);
-      // const response = await fetch("./100flight.json");
+      // const response = await fetch(url, options);
+      const response = await fetch("/100flight.json");
       const data = await response.json();
 
       console.log("Flight Data:", data);
