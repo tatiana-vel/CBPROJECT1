@@ -1,4 +1,4 @@
-# XOXO Flight Availablity APP
+# XOXO Flights
 
 ## Description:
 
@@ -102,11 +102,12 @@ The Flight Availability and Weather Tracker offers the following features:
 ## File Structure
 
    /ASSETS
-        style.css      
+        style.css   
+        second.css   
         index.js        
-        secound.js      
-    secound.html   
+        second.js      
     index.html
+    second.html 
     README.md
 
 
