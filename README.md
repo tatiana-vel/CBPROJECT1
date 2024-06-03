@@ -114,7 +114,8 @@ The Flight Availability and Weather Tracker offers the following features:
 
 ## Screenshots
 
-![Screenshot of Project](the path is gonna be over here)
+![Screenshot of Project](firstpage.png)
+![Screenshot of Project](secondpage.png)
 
 
 ## Deployment link
