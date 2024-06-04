@@ -110,6 +110,9 @@ The Flight Availability and Weather Tracker offers the following features:
     second.html 
     README.md
 
+## Wireframing
+
+
 
 ## Screenshots
 
@@ -118,6 +121,8 @@ The Flight Availability and Weather Tracker offers the following features:
 
 
 ## Deployment Link
+
+https://tatiana-vel.github.io/CBPROJECT1/ 
 
 ### Link to Repository
 https://github.com/tatiana-vel/CBPROJECT1
