@@ -9,7 +9,7 @@ window.addEventListener("load", async function () {
   const departDate = params.get("departDate");
   const returnDate = params.get("returnDate");
 
-  // First API that gives original sky, destination, date of travel and return, and the prices from sky scrapper.\
+  // First API that gives original sky, destination, date of travel and return, and the prices from AVIATIONSTACK.\
   const displayFlightInfo = (data) => {
     const flightDetailsElement = document.getElementById("flightDetails");
     flightDetailsElement.innerHTML = `                                   
@@ -71,7 +71,6 @@ window.addEventListener("load", async function () {
     };
     try {
       const response = await fetch(url, options);
-      // const response = await fetch("/100flight.json");
       const data = await response.json();
 
       console.log("Flight Data:", data);
@@ -113,9 +112,6 @@ window.addEventListener("load", async function () {
   };
 
 
-
-
-  // API 3 that pull city weather we need lat and lon.
   async function cityWeather(destination) {
     const url = `https://open-weather13.p.rapidapi.com/city/${destination}/EN`;
     const options = {
@@ -128,9 +124,7 @@ window.addEventListener("load", async function () {
 
     try {
       const response = await fetch(url, options);
-      // const response = await fetch("sampleWeatherAPIResponse.json");
       const result = await response.json();
-      // result.name = destination;
 
       displayWeatherInfo(result);
     } catch (error) {
