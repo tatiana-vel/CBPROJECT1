@@ -112,6 +112,7 @@ The Flight Availability and Weather Tracker offers the following features:
 
 ## Wireframing
 
+![Screenshot 2024-06-03 213849](https://github.com/tatiana-vel/CBPROJECT1/assets/166587544/1b7da06c-828d-47c5-87de-fe2f4fcab326)
 
 
 ## Screenshots
