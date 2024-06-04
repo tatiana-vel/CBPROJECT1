@@ -8,7 +8,7 @@ window.addEventListener("load", async function () {
   const departDate = params.get("departDate");
   const returnDate = params.get("returnDate");
 
-  // First API that gives original sky, destination, date of travel and return, and the prices from sky scrapper.\
+  // First API that gives original sky, destination, date of travel and return, and the prices from AVIATIONSTACK.\
   const displayFlightInfo = (data) => {
     const flightDetailsElement = document.getElementById("flightDetails");
     flightDetailsElement.innerHTML = `                                   
