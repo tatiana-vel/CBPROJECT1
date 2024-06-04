@@ -1,5 +1,9 @@
 # XOXO Flights
 
+## Deployment Link
+
+https://tatiana-vel.github.io/CBPROJECT1/ 
+
 ## Description:
 
 The Flight Availability and Weather Tracker is a tool designed to help users find available flights and obtain weather information for their destination. By entering the origin, destination, and date of travel, users can access a list of available flights for their specified route and date. Additionally, the tool provides the weather conditions at the destination, allowing users to better plan their trips.
@@ -117,16 +121,31 @@ The Flight Availability and Weather Tracker offers the following features:
 
 ## Screenshots
 
-![Screenshot of Project](firstpage.png)
-![Screenshot of Project](secondpage.png)
+LOGO WITH SLOGAN = 
+
+![image](https://github.com/tatiana-vel/CBPROJECT1/assets/166587544/095fe382-3f55-489e-9422-f7b278a9d69a)
+
+LOGO = 
+
+![image](https://github.com/tatiana-vel/CBPROJECT1/assets/166587544/3b604ff7-53c0-4a2e-a8ca-58100d600757)
+
+PAGE 1 =
+
+![image](https://github.com/tatiana-vel/CBPROJECT1/assets/166587544/261cece2-c079-4f93-982a-1a406e391188)
+
+PAGE 2 = 
+
+![image](https://github.com/tatiana-vel/CBPROJECT1/assets/166587544/7bd1b52f-45b7-448b-b6ea-141b795874fa)
+
+SEARCH HISTORY = 
+
+![image](https://github.com/tatiana-vel/CBPROJECT1/assets/166587544/3bf2040b-8968-4ee3-8ee6-42c286298523)
 
 
-## Deployment Link
 
-https://tatiana-vel.github.io/CBPROJECT1/ 
 
-### Link to Repository
-https://github.com/tatiana-vel/CBPROJECT1
+
+
 
 
 
