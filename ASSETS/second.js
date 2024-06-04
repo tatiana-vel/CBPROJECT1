@@ -1,6 +1,5 @@
 const access_key = 'ab668de2367deb17548466790b816817';
-const weather_api_key = '9990878e4fmshdb651a79b350088p178370jsn741b1b85ff98';
-//use your own API
+const weatherAPIKey = 'ef6e1f7186mshf7d03c1551b8febp1f1503jsn6c210dac1235';
 
 window.addEventListener("load", async function () {
   const params = new URLSearchParams(window.location.search);
@@ -92,51 +91,46 @@ window.addEventListener("load", async function () {
   };
 
   // Second API that displays the weather from Open Weather.
-  const displayWeatherInfo = (weatherResult) => {
+  const displayWeatherInfo = (weather) => {
     const weatherDetailsElement = document.getElementById("weatherDetails");
-    weatherDetailsElement.innerHTML = `                               
-                                      <div class="grid-container">
-                                        <div class="grid-x grid-margin-x align-center">
-                                            <div class="cell small-12 medium-6 large-6">
-                                                <div class="card">
-                                                    <div class="card-section">
-                                                    <p>Here's a description of the weather in ${weatherResult.name}:</p>
-                                                    <p>Temperature: ${weatherResult.main.temp}°F</p>
-                                                    <p>Description: ${weatherResult.weather[0].description}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                      </div>
-                                      `;
+    weatherDetailsElement.innerHTML = `<div class="card">
+                                          <div class="card-section">
+                                            <h4>Weather in ${weather.name}</h4>
+                                            <p>Temperature: ${weather.main.temp}°C</p>
+                                            <p>Weather: ${weather.weather[0].description}</p>
+                                          </div>
+                                        </div>`;
   };
 
-
-  async function cityWeather(destination) {
-    const url = `https://open-weather13.p.rapidapi.com/city/${destination}/EN`;
-    const options = {
+  const fetchWeatherInfo = async (destination) => {
+    const url2 = `https://open-weather13.p.rapidapi.com/city/${destination}/EN`;
+    const options2 = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": weather_api_key,
-        "X-RapidAPI-Host": "open-weather13.p.rapidapi.com",
+        "x-rapidapi-key": weatherAPIKey,
+        "x-rapidapi-host": "open-weather13.p.rapidapi.com",
       },
     };
-
     try {
-      const response = await fetch(url, options);
-      const result = await response.json();
+      const response = await fetch(url2, options2);
+      const data = await response.json();
+      console.log("Weather Data:", data);
 
-      displayWeatherInfo(result);
+      if (data && data.name && data.main && data.weather) {
+        displayWeatherInfo(data);
+      } else {
+        console.error("Invalid weather data structure:", data);
+        const weatherDetailsElement = document.getElementById("weatherDetails");
+        weatherDetailsElement.innerHTML =
+          "<p>No weather information available.</p>";
+      }
     } catch (error) {
-      console.error(error);
+      console.error("Error fetching weather data:", error);
+      const weatherDetailsElement = document.getElementById("weatherDetails");
+      weatherDetailsElement.innerHTML =
+        "<p>Error fetching weather information.</p>";
     }
-  }
-
-
-  cityWeather(destination);
+  };
   fetchFlightInfo();
-
-
-
-
+  fetchWeatherInfo(destination);
 });
